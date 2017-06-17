@@ -7373,7 +7373,7 @@ int QCameraParameters::getJpegQuality()
 {
     int quality = getInt(KEY_JPEG_QUALITY);
     if (quality < 0) {
-        quality = 95; // set to default quality value
+        quality = 100; // set to default quality value
     }
     return quality;
 }
