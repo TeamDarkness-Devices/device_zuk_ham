@@ -58,9 +58,12 @@ TARGET_KERNEL_CONFIG := lineageos_k9_defconfig
 #SD Clang
 TARGET_USE_SDCLANG := true
 
-# Enable DIAG on eng builds
-ifeq ($(TARGET_BUILD_VARIANT),eng)
-TARGET_KERNEL_ADDITIONAL_CONFIG:= lineageos_debug_config
+# Fixes Wifi-Mobile Data toggle issue
+MALLOC_SVELTE := true
+
+# Enable DIAG on debug builds
+ifneq ($(TARGET_BUILD_VARIANT),user)
+TARGET_KERNEL_ADDITIONAL_CONFIG:= cyanogenmod_debug_config
 endif
 
 # QCOM
